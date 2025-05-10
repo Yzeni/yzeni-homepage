@@ -1,22 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Find Pharmacy - Yzeni Pharma</title>
+  <meta charset="UTF-8">
+  <title>Search Medications - Yzeni Pharma</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .search-container {
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .search-container input {
+      padding: 12px;
+      width: 300px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .search-container button {
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      background-color: #0077cc;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .suggestions {
+      margin-top: 30px;
+    }
+
+    .suggestions a {
+      display: block;
+      margin: 8px auto;
+      color: #00ccff;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .suggestions a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
   <div class="top-nav">
     <img src="logo.png" alt="Yzeni Logo" style="height: 40px;">
     <nav>
       <a href="index.html">Home</a>
+      <a href="search.html">Search</a>
+      <a href="login.html">Login</a>
     </nav>
   </div>
 
-  <div class="hero">
-    <h2>Find a Pharmacy</h2>
-    <input type="text" placeholder="Enter location">
-    <br><br>
-    <button onclick="alert('Pharmacy 1: 123 Main St\nPharmacy 2: 456 West Ave')">Search</button>
+  <div class="search-container">
+    <h2>Search for a Medication</h2>
+    <input type="text" placeholder="Enter drug name...">
+    <button>Search</button>
+
+    <div class="suggestions">
+      <p>Suggested:</p>
+      <a href="med-paracetamol.html">Paracetamol</a>
+      <a href="med-amoxicillin.html">Amoxicillin</a>
+      <a href="med-ibuprofen.html">Ibuprofen</a>
+      <a href="med-loratadine.html">Loratadine</a>
+      <a href="med-metformin.html">Metformin</a>
+    </div>
   </div>
 </body>
 </html>
