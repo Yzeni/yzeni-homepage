@@ -19,8 +19,8 @@ body {
 
 /* Logo in nav */
 .top-nav img {
-  height: 70px; /* or whatever fits well */
-  width: auto;
+  height: 20px; /* or whatever fits well */
+  width: 100px;
 }
 
 /* Nav links */
