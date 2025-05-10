@@ -13,6 +13,14 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
+    .top-nav img {
+    width: 100px; /* adjust as needed */
+    height: auto;
+}
+
+.top-nav a {
+    font-size: 14px; /* smaller nav text */
+}
 }
 .top-nav a {
     margin: 0 10px;
@@ -22,10 +30,29 @@ body {
 .hero {
     background: url('tree.jpg') no-repeat center center;
     background-size: cover;
-    padding: 80px 20px;
-    position: relative;
-    color: white;
+    min-height: 80vh;  /* take up 80% of screen height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
     text-align: center;
+}
+.hero input {
+    padding: 10px;
+    width: 300px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.hero button {
+    padding: 10px 20px;
+    border: none;
+    background: #008CBA;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
 }
 .hero input {
     padding: 10px;
