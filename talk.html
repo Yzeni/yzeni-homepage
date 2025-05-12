@@ -1,132 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
   <title>Talk to Yzeni AI</title>
   <link rel="stylesheet" href="style.css">
   <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: url('Yzeni ai.png') no-repeat center center;
+      background-size: cover;
+      color: white;
+      height: 100vh;
+    }
     .chatbot-toggle {
       position: fixed;
       bottom: 20px;
       left: 20px;
-      background-color: #222;
+      background-color: #111;
       color: white;
-      padding: 10px 15px;
+      padding: 12px;
       border-radius: 50%;
       cursor: pointer;
       font-size: 20px;
-      z-index: 999;
+      z-index: 1000;
     }
-
     .chatbot-window {
       display: none;
       position: fixed;
       bottom: 80px;
       left: 20px;
       width: 300px;
-      height: 400px;
-      background-color: white;
-      border: 1px solid #ccc;
+      height: 350px;
+      background: white;
+      color: black;
       border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-      z-index: 998;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .chat-header {
-      background-color: #222;
-      color: white;
       padding: 10px;
-      font-weight: bold;
+      box-shadow: 0 0 10px #000;
+      z-index: 1000;
     }
-
-    .chat-messages {
-      flex-grow: 1;
-      padding: 10px;
-      overflow-y: auto;
-      font-size: 14px;
-    }
-
-    .chat-input {
-      display: flex;
-      border-top: 1px solid #ccc;
-    }
-
-    .chat-input input {
-      flex: 1;
-      padding: 10px;
-      border: none;
-    }
-
-    .chat-input button {
-      padding: 10px;
-      background-color: #222;
-      color: white;
-      border: none;
-      cursor: pointer;
+    .chatbot-window p {
+      margin-top: 0;
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Navigation -->
-  <div class="top-nav">
-    <img src="logo.png" alt="Yzeni Logo" style="height: 40px;">
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="search.html">Search</a>
-      <a href="login.html">Login</a>
-    </nav>
-  </div>
+<div class="chatbot-toggle" onclick="toggleChat()">💬</div>
 
-  <!-- Page Content -->
-  <main style="padding: 60px; text-align: center;">
-    <h1>Talk to Yzeni AI</h1>
-    <p>Ask health-related questions or get medication support below!</p>
-  </main>
+<div class="chatbot-window" id="chatbot">
+  <p>Hello! I’m Yzeni AI. How can I help you today?</p>
+</div>
 
-  <!-- Chatbot Toggle -->
-  <div class="chatbot-toggle" onclick="toggleChat()">💬</div>
-
-  <!-- Chatbot Window -->
-  <div class="chatbot-window" id="chatbot">
-    <div class="chat-header">Yzeni AI</div>
-    <div class="chat-messages" id="messages">
-      <p><strong>Yzeni:</strong> Hi! How can I assist you today?</p>
-    </div>
-    <div class="chat-input">
-      <input type="text" id="userInput" placeholder="Type your message...">
-      <button onclick="sendMessage()">Send</button>
-    </div>
-  </div>
-
-  <!-- Chatbot Script -->
-  <script>
-    function toggleChat() {
-      const chatbot = document.getElementById('chatbot');
-      chatbot.style.display = chatbot.style.display === 'none' || chatbot.style.display === '' ? 'flex' : 'none';
-    }
-
-    function sendMessage() {
-      const input = document.getElementById('userInput');
-      const msg = input.value.trim();
-      if (!msg) return;
-
-      const messagesDiv = document.getElementById('messages');
-      const userMsg = document.createElement('p');
-      userMsg.innerHTML = `<strong>You:</strong> ${msg}`;
-      messagesDiv.appendChild(userMsg);
-
-      const botMsg = document.createElement('p');
-      botMsg.innerHTML = `<strong>Yzeni:</strong> I'm still learning. Please check back later!`;
-      messagesDiv.appendChild(botMsg);
-
-      input.value = '';
-      messagesDiv.scrollTop = messagesDiv.scrollHeight;
-    }
-  </script>
+<script>
+  function toggleChat() {
+    const bot = document.getElementById('chatbot');
+    bot.style.display = bot.style.display === 'block' ? 'none' : 'block';
+  }
+</script>
 
 </body>
 </html>
