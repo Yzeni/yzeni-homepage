@@ -67,17 +67,41 @@
 
   <!-- Chatbot -->
   <div class="chatbot-toggle" onclick="toggleChat()">💬</div>
-  <div class="chatbot-window" id="chatbot">
-    <p>Hello! I’m Yzeni AI. How can I help you today?</p>
-  </div>
+  <div id="chat-messages" style="height: 250px; overflow-y: auto; margin-bottom: 10px;"></div>
+  <input type="text" id="user-input" placeholder="Type your message..." style="width: 70%;">
+  <button onclick="sendMessage()">Send</button>
+</div>
 
   <!-- JS for toggling chatbot -->
   <script>
-    function toggleChat() {
-      const bot = document.getElementById('chatbot');
-      bot.style.display = bot.style.display === 'block' ? 'none' : 'block';
-    }
-  </script>
+  function toggleChat() {
+    const bot = document.getElementById('chatbot');
+    bot.style.display = bot.style.display === 'block' ? 'none' : 'block';
+  }
+
+  function sendMessage() {
+    const input = document.getElementById('user-input');
+    const messages = document.getElementById('chat-messages');
+
+    if (input.value.trim() === '') return;
+
+    // Add user's message
+    const userMsg = document.createElement('p');
+    userMsg.innerHTML = "<strong>You:</strong> " + input.value;
+    messages.appendChild(userMsg);
+
+    // Add simple bot reply
+    const botMsg = document.createElement('p');
+    botMsg.innerHTML = "<strong>Yzeni AI:</strong> I'm still learning! Please contact a pharmacist for detailed advice.";
+    messages.appendChild(botMsg);
+
+    // Scroll to bottom
+    messages.scrollTop = messages.scrollHeight;
+
+    // Clear input
+    input.value = '';
+  }
+</script>
 
 </body>
 </html>
