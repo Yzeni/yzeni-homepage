@@ -5,12 +5,18 @@
   <link rel="stylesheet" href="style.css">
   <style>
     body {
-      margin: 0;
       font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #000;
+      color: white;
+    }
+    .hero {
       background: url('Yzeni ai.png') no-repeat center center;
       background-size: cover;
+      padding: 80px 20px;
       color: white;
-      height: 100vh;
+      text-align: center;
     }
     .chatbot-toggle {
       position: fixed;
@@ -38,25 +44,40 @@
       box-shadow: 0 0 10px #000;
       z-index: 1000;
     }
-    .chatbot-window p {
-      margin-top: 0;
-    }
   </style>
 </head>
 <body>
 
-<div class="chatbot-toggle" onclick="toggleChat()">💬</div>
+  <!-- Nav Bar -->
+  <div class="top-nav">
+    <img src="logo.png" alt="Yzeni Logo" class="logo" style="height: 30px;">
+    <div>
+      <a href="index.html">Home</a>
+      <a href="talk.html">Talk to Yzeni AI</a>
+      <a href="search.html">Find Pharmacy</a>
+      <a href="login.html">Login</a>
+    </div>
+  </div>
 
-<div class="chatbot-window" id="chatbot">
-  <p>Hello! I’m Yzeni AI. How can I help you today?</p>
-</div>
+  <!-- Hero Section (New background only here) -->
+  <div class="hero">
+    <h1>Talk to Yzeni AI</h1>
+    <p>Your personal pharmacy assistant</p>
+  </div>
 
-<script>
-  function toggleChat() {
-    const bot = document.getElementById('chatbot');
-    bot.style.display = bot.style.display === 'block' ? 'none' : 'block';
-  }
-</script>
+  <!-- Chatbot -->
+  <div class="chatbot-toggle" onclick="toggleChat()">💬</div>
+  <div class="chatbot-window" id="chatbot">
+    <p>Hello! I’m Yzeni AI. How can I help you today?</p>
+  </div>
+
+  <!-- JS for toggling chatbot -->
+  <script>
+    function toggleChat() {
+      const bot = document.getElementById('chatbot');
+      bot.style.display = bot.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
 
 </body>
 </html>
