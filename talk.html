@@ -82,23 +82,40 @@
   function sendMessage() {
     const input = document.getElementById('user-input');
     const messages = document.getElementById('chat-messages');
+    const userText = input.value.trim().toLowerCase();
 
-    if (input.value.trim() === '') return;
+    if (userText === '') return;
 
-    // Add user's message
+    // Show user's message
     const userMsg = document.createElement('p');
     userMsg.innerHTML = "<strong>You:</strong> " + input.value;
     messages.appendChild(userMsg);
 
-    // Add simple bot reply
+    // Prepare bot response
+    let response = "<strong>Yzeni AI:</strong> I'm still learning! Please contact a pharmacist for detailed advice.";
+
+    // Keyword-based responses
+    if (userText.includes("amoxicillin")) {
+      response = "<strong>Yzeni AI:</strong> Amoxicillin is a penicillin antibiotic used to treat a wide variety of bacterial infections.";
+    } else if (userText.includes("loratadine")) {
+      response = "<strong>Yzeni AI:</strong> Loratadine is an antihistamine that relieves allergy symptoms like sneezing and runny nose.";
+    } else if (userText.includes("metformin")) {
+      response = "<strong>Yzeni AI:</strong> Metformin is used to treat type 2 diabetes and works by lowering blood sugar levels.";
+    } else if (userText.includes("paracetamol")) {
+      response = "<strong>Yzeni AI:</strong> Paracetamol is used to relieve mild to moderate pain and reduce fever.";
+    } else if (userText.includes("ibuprofen")) {
+      response = "<strong>Yzeni AI:</strong> Ibuprofen is a nonsteroidal anti-inflammatory drug (NSAID) used to reduce fever and treat pain or inflammation.";
+
+    } else if (userText.includes("help")) {
+      response = "<strong>Yzeni AI:</strong> You can ask about medications like Amoxicillin, Loratadine, Metformin, Paracetamol, or Ibuprofen.";
+    }
+
+    // Show bot response
     const botMsg = document.createElement('p');
-    botMsg.innerHTML = "<strong>Yzeni AI:</strong> I'm still learning! Please contact a pharmacist for detailed advice.";
+    botMsg.innerHTML = response;
     messages.appendChild(botMsg);
 
-    // Scroll to bottom
     messages.scrollTop = messages.scrollHeight;
-
-    // Clear input
     input.value = '';
   }
 </script>
